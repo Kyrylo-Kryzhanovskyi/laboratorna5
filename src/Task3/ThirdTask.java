@@ -11,9 +11,9 @@ public class ThirdTask {
             return;
         }
         String pathSource1 = args[0];
-        String pathSource = System.getProperty("user.dir") +  pathSource1;
+        String pathSource = System.getProperty("user.dir") +  pathSource1.replace('/', File.separatorChar);
         String pathTarget1 = args[1];
-        String pathTarget = System.getProperty("user.dir") +  pathTarget1;
+        String pathTarget = System.getProperty("user.dir") +  pathTarget1.replace('/', File.separatorChar);
         System.out.println(pathTarget);
         System.out.println(pathSource);
         copyBytesStream(pathSource,pathTarget + "1.txt");
@@ -28,7 +28,7 @@ public class ThirdTask {
                 out.write(c);
             }
         } catch (IOException e) {
-            System.out.println("Помилка input-output: " + e.getMessage());
+            System.out.println("Помилка вводу-виводу: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -44,7 +44,7 @@ public class ThirdTask {
                 outputStream.write(c);
             }
         } catch (IOException e) {
-            System.out.println("Помилка input-output: " + e.getMessage());
+            System.out.println("Помилка вводу-виводу: " + e.getMessage());
             e.printStackTrace();
         } finally {
             if (inputStream != null) {
@@ -68,7 +68,7 @@ public class ThirdTask {
                 outputStream.println(l);
             }
         } catch (IOException e) {
-            System.out.println("Помилка input-output: " + e.getMessage());
+            System.out.println("Помилка вводу-виводу: " + e.getMessage());
             e.printStackTrace();
         } finally {
             if (inputStream != null) {
